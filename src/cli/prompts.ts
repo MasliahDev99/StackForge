@@ -15,7 +15,7 @@ import {
     printBanner()
     console.log(chalk.cyanBright('\n🛠️  Bienvenido a StackForge CLI\n'));
     console.log()
-    
+
     const packageManager = await select({
       message: '📦 ¿Qué gestor de paquetes querés usar?',
       options: [
@@ -51,7 +51,7 @@ import {
       ],
     });
     if (isCancel(bundler)) return cancelAndExit();
-  
+
     const language = await select({
       message: '📝 ¿Qué lenguaje querés usar?',
       options: [
@@ -61,7 +61,7 @@ import {
       ],
     });
     if (isCancel(language)) return cancelAndExit();
-  
+
     const useTailwind = await confirm({
       message: '🎨 ¿Querés instalar TailwindCSS?',
       initialValue: true,

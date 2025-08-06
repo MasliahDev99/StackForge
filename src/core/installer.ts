@@ -21,12 +21,12 @@ export async function installDependencies(config: UserAnswers) {
     switch(bundler){
         case 'Vite':
             console.log(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
-            await execCommand(`${packageManager} create vite@latest ${projectName} -- --template ${language === 'JavaScript' ? 'react' : 'react-ts'}`)
+            await execCommand(`${packageManager} create vite@latest ${projectName.toLowerCase()} --template ${language === 'JavaScript' ? 'react' : 'react-ts'}`)
             await execCommand(`ls`)
             break;
         case 'CRA':
             console.log(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
-            await execCommand(`${packageManager} create-react-app ${projectName} ${language === 'JavaScript' ? '' : '--template typescript'}`);
+            await execCommand(`${packageManager} create-react-app ${projectName.toLowerCase()} ${language === 'JavaScript' ? '' : '--template typescript'}`);
             await execCommand(`ls`)
             break;
         case "Ninguno":
@@ -39,7 +39,7 @@ export async function installDependencies(config: UserAnswers) {
             break;
     }
     // se mueve a la carpeta del proyecto para asegurar que las dependencias se instalen detro
-    process.chdir(projectName);
+    process.chdir(projectName.toLowerCase());
 }
 
 
