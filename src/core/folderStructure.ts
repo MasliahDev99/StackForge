@@ -1,73 +1,136 @@
 /**
- *  folderStructure -  Creador de carpetas
- * 
- *  Responsable de:
- *  
- *  - Crear estructura si createFolders === true
- *  - Validar rutas, crear subdirectorios (src/components, pages, etc.)
- * 
- * 
+ * folderStructure - Generador de estructura de carpetas y archivos
+ *
+ * Sintaxis soportada:
+ * - "/" → Subcarpeta (nivel de profundidad)
+ * - "{}" → Archivos en el path actual
+ * - "[]" → Agrupación de rutas y archivos al mismo nivel
+ * - "," → Separación de elementos hermanos
  */
 
 import fs from 'fs';
 import path from 'path';
 import { logger } from '../utils/logger';
 
-export function createFolderStructure({ folderStructure }: { folderStructure?: string }) {
+type FolderStructureConfig = {
+  folderStructure?: string;
+};
+
+export async function createFolderStructure({ folderStructure }: FolderStructureConfig) {
   const srcPath = path.join(process.cwd(), 'src');
-  if (!fs.existsSync(srcPath)) {
-    fs.mkdirSync(srcPath, { recursive: true });
-    logger.success('📁 Carpeta raíz creada: src');
-  }
+  ensureDirectoryExists(srcPath, '📁 Carpeta raíz creada: src');
 
   if (!folderStructure || !folderStructure.trim()) {
     logger.warn('No se especificó estructura de carpetas.');
     return;
   }
 
-  const entries = folderStructure
-    .split(',')
-    .map(e => e.trim())
-    .filter(Boolean);
+  const entries = parseComplexStructureString(folderStructure);
 
-  entries.forEach(entry => {
-    const hasChildren = entry.includes('[') && entry.includes(']');
-    if (!hasChildren) {
-      // Solo carpeta simple dentro de src
-      const dirPath = path.join(process.cwd(), 'src', entry);
-      if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath, { recursive: true });
-        logger.success(`📁 Carpeta creada: ${entry}`);
+  for (const { parent, children } of entries) {
+    const parentPath = path.join(srcPath, parent);
+    ensureDirectoryExists(parentPath, `📁 Carpeta creada: ${parentPath}`);
+
+    for (const child of children) {
+      const isFile = child.includes('.');
+      const childPath = path.join(parentPath, child);
+      if (isFile) {
+        createFileIfNotExists(childPath);
       } else {
-        logger.info(`📁 Ya existe: ${entry}`);
+        ensureDirectoryExists(childPath, `📁 Subcarpeta creada: ${childPath}`);
       }
-    } else {
-      // carpeta con hijos entre corchetes
-      const [parentRaw = '', childrenRaw = ''] = entry.split('[');
-      const parent = parentRaw.trim();
-      const children = childrenRaw.replace(']', '').split(',').map(c => c.trim()).filter(Boolean);
-
-      const parentPath = path.join(process.cwd(), 'src', parent);
-      if (!fs.existsSync(parentPath)) {
-        fs.mkdirSync(parentPath, { recursive: true });
-        logger.success(`📁 Carpeta creada: ${parent}`);
-      }
-
-      children.forEach(child => {
-        const isFile = child.includes('.');
-        const childPath = path.join(parentPath, child);
-        if (isFile) {
-          if (!fs.existsSync(childPath)) {
-            fs.writeFileSync(childPath, '');
-            logger.success(`📝 Archivo creado: ${path.join(parent, child)}`);
-          }
-        } else {
-          if (!fs.existsSync(childPath)) {
-            fs.mkdirSync(childPath, { recursive: true });
-            logger.success(`📁 Subcarpeta creada: ${path.join(parent, child)}`);
-          }
-        }
-      });
     }
-  });
+  }
+}
+
+type ParsedEntry = {
+  parent: string;
+  children: string[];
+};
+
+function parseComplexStructureString(input: string): ParsedEntry[] {
+  const entries: ParsedEntry[] = [];
+
+  const flush = (pathStack: string[], files: string[]) => {
+    if (pathStack.length === 0) return;
+    const parent = pathStack.join('/');
+    entries.push({ parent, children: files });
+  };
+
+  const walk = (str: string, parentStack: string[] = []) => {
+    let i = 0;
+    let temp = '';
+
+    const pushTempAsFolder = () => {
+      const clean = temp.trim();
+      if (clean) parentStack.push(clean);
+      temp = '';
+    };
+
+    while (i < str.length) {
+      const char = str[i];
+
+      if (char === '/') {
+        pushTempAsFolder();
+      } else if (char === '[') {
+        const closeIdx = findClosing(str, i, '[', ']');
+        const content = str.slice(i + 1, closeIdx);
+        walk(content, parentStack);
+        i = closeIdx;
+      } else if (char === '{') {
+        pushTempAsFolder();
+        const closeIdx = findClosing(str, i, '{', '}');
+        const content = str.slice(i + 1, closeIdx);
+        const files = content.split(',').map(f => f.trim()).filter(Boolean);
+        flush(parentStack, files);
+        i = closeIdx;
+      } else if (char === ',') {
+        pushTempAsFolder();
+        flush(parentStack, []);
+        parentStack.pop();
+      } else {
+        temp += char;
+      }
+      i++;
+    }
+
+    pushTempAsFolder();
+    flush(parentStack, []);
+    parentStack.pop();
+  };
+
+  const findClosing = (str: string, start: number, open: string, close: string): number => {
+    let depth = 0;
+    for (let i = start; i < str.length; i++) {
+      if (str[i] === open) depth++;
+      else if (str[i] === close) {
+        depth--;
+        if (depth === 0) return i;
+      }
+    }
+    throw new Error(`No se encontró cierre para ${open} iniciado en posición ${start}`);
+  };
+
+  walk(input);
+  return entries;
+}
+
+function ensureDirectoryExists(dirPath: string, successMessage?: string) {
+  logger.info(`Verificando carpeta: ${dirPath}`);
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    logger.success(successMessage || `📁 Carpeta creada: ${dirPath}`);
+  } else {
+    logger.info(`📁 Ya existe: ${dirPath}`);
+  }
+}
+
+function createFileIfNotExists(filePath: string) {
+  logger.info(`Verificando archivo: ${filePath}`);
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, '');
+    logger.success(`📝 Archivo creado: ${filePath}`);
+  } else {
+    logger.info(`📝 Ya existe: ${filePath}`);
+  }
 }

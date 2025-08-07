@@ -46,7 +46,6 @@ import {
       message: '🔧 ¿Qué bundler querés usar?',
       options: [
         { label: 'Vite', value: 'Vite' },
-        { label: 'Create React App', value: 'CRA' },
         { label: 'Ninguno', value: 'Ninguno' },
       ],
     });
@@ -109,7 +108,7 @@ import {
     let folderStructure: string | undefined = undefined;
     if (createFolders) {
       folderStructure = await text({
-        message: '📂 Ingresá estructura (ej: componentes/[Auth,Ui], hooks, services/[api.ts]):',
+        message: '📂 Ingresá estructura (ej: pages/auth/{index.ts},shared/hooks/{useFetch.ts}):',
         validate: (value) =>
           value.trim().length > 0 ? undefined : 'Ingresá una estructura válida.',
       }) as string;

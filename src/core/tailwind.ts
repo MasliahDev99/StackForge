@@ -15,50 +15,75 @@ import { execCommand } from '../utils/exec';
 import { UserAnswers } from '../types';
 import { logger } from '../utils/logger';
 
+
+function isModernTailwind(version : string) : boolean {
+  return version === 'latest' || version === '4.1'
+}
+
 export async function setupTailwind(config: UserAnswers) {
   const version = config.tailwindVersion ?? 'latest';
-  logger.info(`Configurando TailwindCSS versión: ${version}`);
+  const isModern = isModernTailwind(version)
 
-  await execCommand(`npm install -D tailwindcss@${version} postcss autoprefixer`);
-  await execCommand('npx tailwindcss init -p');
+  logger.info(`⚙️ Configurando TailwindCSS versión: ${version}`);
+  await installTailwind(version, isModern);
+  await configureTailwind(version, isModern);
+  await insertTailwindDirectives(version);
+}
 
-  const cssDir = path.join(process.cwd(), 'src');
-  const cssFiles = fs.readdirSync(cssDir).filter(f => f.endsWith('.css'));
-  const targetCss = cssFiles.find(f => f.includes('index')) || cssFiles[0];
+async function installTailwind(version: string, isModern: boolean) {
+  const installCmd = isModern
+    ? 'npm install -D tailwindcss@latest @tailwindcss/vite'
+    : `npm install -D tailwindcss@${version} postcss autoprefixer`;
+  await execCommand(installCmd);
+}
 
-  if (targetCss) {
-    const cssPath = path.join(cssDir, targetCss);
-    const directive = (version === 'latest' || version === '4.1') ? '@tailwind;' : [
-      '@tailwind base;',
-      '@tailwind components;',
-      '@tailwind utilities;'
-    ].join('\n');
+async function configureTailwind(version: string, isModern: boolean) {
+  if (isModern) {
+    const viteConfig = `import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
-    fs.writeFileSync(cssPath, `${directive}\n`, 'utf-8');
-    logger.success(`Insertadas directivas Tailwind en ${targetCss}`);
-  }
+export default defineConfig({
+  plugins: [tailwindcss()],
+});`;
+    fs.writeFileSync(path.join(process.cwd(), 'vite.config.js'), viteConfig, 'utf-8');
+    logger.success(`✅ vite.config.js configurado para TailwindCSS ${version}`);
 
-  // Modificar tailwind.config.js si es necesario (aquí podés agregar lógica condicional si querés presets)
-
-  // Configurar vite.config si existe
-  const viteConfigTS = path.join(process.cwd(), 'vite.config.ts');
-  const viteConfigJS = path.join(process.cwd(), 'vite.config.js');
-  const viteConfigFile = fs.existsSync(viteConfigTS) ? viteConfigTS : fs.existsSync(viteConfigJS) ? viteConfigJS : null;
-
-  if (viteConfigFile) {
-    let content = fs.readFileSync(viteConfigFile, 'utf-8');
-
-    if (!content.includes('@tailwindcss/vite')) {
-      content = `import tailwindcss from '@tailwindcss/vite';\n` + content;
-    }
-
-    if (!content.includes('tailwindcss()')) {
-      content = content.replace(/plugins:\s*\[/, 'plugins: [tailwindcss(), ');
-    }
-
-    fs.writeFileSync(viteConfigFile, content, 'utf-8');
-    logger.success(`Tailwind plugin agregado a ${path.basename(viteConfigFile)}`);
+    const config = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  theme: { extend: {} },
+  plugins: [],
+};`;
+    fs.writeFileSync(path.join(process.cwd(), 'tailwind.config.js'), config, 'utf-8');
+    logger.success(`✅ tailwind.config.js generado para TailwindCSS ${version}`);
   } else {
-    logger.warn('vite.config no encontrado, no se aplicó configuración de plugin de Tailwind.');
+    await execCommand('npx tailwindcss init -p');
+
+    const config = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  theme: { extend: {} },
+  plugins: [],
+}`;
+    fs.writeFileSync(path.join(process.cwd(), 'tailwind.config.js'), config, 'utf-8');
+    logger.success(`✅ tailwind.config.js configurado para TailwindCSS ${version}`);
   }
 }
+
+async function insertTailwindDirectives(version: string) {
+  const cssDir = path.join(process.cwd(), 'src');
+  if (!fs.existsSync(cssDir)) return;
+
+  const cssFiles = fs.readdirSync(cssDir).filter(f => f.endsWith('.css'));
+  const targetCss = cssFiles.find(f => f.includes('index')) || cssFiles[0];
+  if (!targetCss) return;
+
+  const directive = (version === 'latest' || version === '4.1')
+    ? '@import "tailwindcss";'
+    : ['@tailwind base;', '@tailwind components;', '@tailwind utilities;'].join('\n');
+
+  fs.writeFileSync(path.join(cssDir, targetCss), `${directive}\n`, 'utf-8');
+  logger.success(`✅ Directivas Tailwind insertadas en ${targetCss}`);
+} 
+
+

@@ -25,9 +25,6 @@ export async function setupAliases({ bundler, language }: UserAnswers) {
       updateViteAlias();
     }
 
-    if (bundler === 'CRA' && !isTS) {
-      logger.warn('Alias no soportado en CRA con JavaScript.');
-    }
 
     if (bundler === 'Ninguno' && !isTS) {
       logger.warn('Alias no configurado en proyectos JS sin bundler.');
@@ -86,7 +83,12 @@ function updateViteAlias() {
     },
   },`;
 
-  const updated = viteConfigRaw.replace(/defineConfig\(\{/, match => `${match}\n${aliasSnippet}`);
+  let updated = viteConfigRaw.replace(/defineConfig\(\{/, match => `${match}\n${aliasSnippet}`);
+
+  if (!viteConfigRaw.includes("import path from 'path'")) {
+    updated = `import path from 'path';\n` + updated;
+  }
+
   fs.writeFileSync(viteConfigFile, updated);
   logger.success(`Alias configurado en ${path.basename(viteConfigFile)}`);
 }

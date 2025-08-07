@@ -15,31 +15,36 @@ import { UserAnswers } from "../types";
 import { runAudit } from './audit';
 import { logger } from '../utils/logger';
 
-export async function installDependencies(config: UserAnswers) {
+
+function getViteCommand(packageManager:string, projectName:string,language:string):string {
+    const template = language === 'JavaScript' ? 'react' : 'react-ts';
+    const lowerName = projectName.toLowerCase();
+
+    return packageManager === 'npm'
+    ? `npm create vite@latest ${lowerName} -- --template ${template}`
+    : `${packageManager} create vite@latest ${lowerName} --template ${template}`;
+}
+
+
+export async function initializeProject(config: UserAnswers) {
     const { bundler, language, projectName, packageManager } = config
 
     switch(bundler){
-        case 'Vite':
-            console.log(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
-            await execCommand(`${packageManager} create vite@latest ${projectName.toLowerCase()} --template ${language === 'JavaScript' ? 'react' : 'react-ts'}`)
-            await execCommand(`ls`)
+        case 'Vite': {
+            logger.info(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`);
+            await execCommand(getViteCommand(packageManager,projectName,language));
             break;
-        case 'CRA':
-            console.log(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
-            await execCommand(`${packageManager} create-react-app ${projectName.toLowerCase()} ${language === 'JavaScript' ? '' : '--template typescript'}`);
-            await execCommand(`ls`)
-            break;
+          }
         case "Ninguno":
-            console.log(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
+            logger.info(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
             await execCommand(`mkdir ${projectName} && cd ${projectName} && npm init -y`);
-            await execCommand(`ls`)
             break;
         default:
             console.error(`Error: Ingrese un bundler existente.\n`)
             break;
     }
-    // se mueve a la carpeta del proyecto para asegurar que las dependencias se instalen detro
-    process.chdir(projectName.toLowerCase());
+    
+    
 }
 
 
@@ -59,7 +64,7 @@ export async function installDeps(config: UserAnswers){
         await execCommand(`${packageManager} install ${depsList}`);
 
         logger.info('Ejecutando auditoría de seguridad...');
-        await runAudit(packageManager);
+        await runAudit(config);
 
         logger.success('Dependencias instaladas y auditadas correctamente.');
     }catch(error){
