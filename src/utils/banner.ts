@@ -11,5 +11,5 @@ export function printBanner() {
                                                   
                                                   
    `));
-  //console.log(chalk.gray('  ⚡ StackForge - Tu CLI para proyectos React + Tailwind + TS\n'));
+  console.log(chalk.gray('  ⚡ StackForge - Tu CLI para proyectos React + Tailwind + TS\n'));
 }

@@ -2,11 +2,12 @@
 
 import chalk from 'chalk';
 import { UserAnswers } from '../types';
+import { logger } from './logger';
 
 export function showResume(config: UserAnswers): void {
  // console.clear()
   console.log();
-  console.log(chalk.magentaBright.bold('🧾 StackForge resume:'));
+  logger.title('🧾 StackForge resume:');
   console.log(chalk.gray('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
   console.log(chalk.cyan(`📁 Proyecto: ${config.projectName}`));
   console.log(chalk.cyan(`📦 Package: ${config.packageName}`));

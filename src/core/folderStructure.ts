@@ -116,21 +116,15 @@ function parseComplexStructureString(input: string): ParsedEntry[] {
 }
 
 function ensureDirectoryExists(dirPath: string, successMessage?: string) {
-  logger.info(`Verificando carpeta: ${dirPath}`);
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
     logger.success(successMessage || `📁 Carpeta creada: ${dirPath}`);
-  } else {
-    logger.info(`📁 Ya existe: ${dirPath}`);
   }
 }
 
 function createFileIfNotExists(filePath: string) {
-  logger.info(`Verificando archivo: ${filePath}`);
   if (!fs.existsSync(filePath)) {
     fs.writeFileSync(filePath, '');
     logger.success(`📝 Archivo creado: ${filePath}`);
-  } else {
-    logger.info(`📝 Ya existe: ${filePath}`);
-  }
+  } 
 }

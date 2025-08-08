@@ -11,3 +11,4 @@ export interface UserAnswers {
     folderStructure?: string;
     packageManager: 'npm' | 'pnpm';
   }
+  

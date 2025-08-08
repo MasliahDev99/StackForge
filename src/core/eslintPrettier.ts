@@ -15,7 +15,7 @@ import { logger } from '../utils/logger';
 export async function setupLinting() {
     logger.title('Configurando ESLint + Prettier');
 
-    await execCommand('npm install -D eslint prettier eslint-config-prettier eslint-plugin-prettier');
+    await execCommand('npm install -D eslint prettier eslint-config-prettier eslint-plugin-prettier',{verbose:false});
   
     const eslintConfig = {
       root: true,

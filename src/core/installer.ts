@@ -58,15 +58,9 @@ export async function installDeps(config: UserAnswers){
     }
 
     try{
-        //logger.title(`Instalando dependencias adicionales: ${depsList}`);
         await execCommand(`${packageManager} install ${depsList}`,{verbose:false});
-
-        //logger.info('Ejecutando auditoría de seguridad...');
         await runAudit(config);
-
-        //logger.success('Dependencias instaladas y auditadas correctamente.');
     }catch(error){
-        //logger.error('Error en la instalacion o auditoria de dependencias: ')
         if (error instanceof Error){
             logger.error(error.message)
         }else{
@@ -74,7 +68,5 @@ export async function installDeps(config: UserAnswers){
         }
         throw new Error('La instalación fue cancelada debido a vulnerabilidades no resueltas. Por favor revise documentacion de la dependencia.');
     }
-
-    //logger.info(`Lista de dependencias para instalar => ${depsList} con gestor de paquetes => ${packageManager}`)
 
 }

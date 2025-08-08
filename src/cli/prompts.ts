@@ -7,8 +7,9 @@ import {
     cancel,
   } from '@clack/prompts';
   import chalk from 'chalk';
-  import { printBanner } from '../utils/banner';
+ 
   import { UserAnswers } from '../types';
+  import { printBanner } from '../utils/banner';
   
   export async function promptUser(): Promise<UserAnswers | null> {
     console.clear();

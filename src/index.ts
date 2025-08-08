@@ -6,14 +6,12 @@ import { runCreator } from "./core/creator";
 import { logger } from "./utils/logger"; 
 import { showResume } from './utils/resume'
 
-async function main() {
-  const config = await promptUser();
-  
-  if (!config) return;
 
+export default async function main() {  
+  const config = await promptUser();
+  if (!config) return;
   await runCreator(config);
   showResume(config);
-
 }
 
 main().catch((err) => {

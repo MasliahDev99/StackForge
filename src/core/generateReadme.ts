@@ -18,7 +18,7 @@ Proyecto generado con StackForge 🚀
 - Estructura generada:
 
 \`\`\`
-${folderStructure}
+${folderStructure ??'sin carpetas creadas'}
 \`\`\`
 
 ## Scripts
