@@ -68,20 +68,24 @@ Queremos que StackForge sea el punto de partida estándar para desarrolladores f
 *Resumen final del proyecto creado*
 
 ---
-## Instalación
-
-Para instalar **StackForge** y empezar a crear proyectos React con TailwindCSS y TypeScript de forma rápida y sencilla, sigue estos pasos:
+## Instalación y Uso
 
 ### Requisitos previos
+- Tener instalado Node.js 16 o superior.
+- Contar con npm.
 
-- Tener instalado Node.js versión 16 o superior.
-- Contar con npm o pnpm como gestor de paquetes.
-
-### Instalación global vía npm
-
+### Instalación 
 ```bash
-npm install -g stackforge
+npm install stackforge-cli
 ```
+
+### Uso con npx 
+```bash
+npx stackforge
+```
+
+
+
 ---
 ## 📄 Licencia
 
