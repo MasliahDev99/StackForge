@@ -81,11 +81,11 @@ Para instalar **StackForge** y empezar a crear proyectos React con TailwindCSS y
 
 ```bash
 npm install -g stackforge
-
+```
 ---
 ## 📄 Licencia
 
-MIT © 2025 — StackForge Contributors [LICENSE](./LICENSE)
+MIT © 2025 — StackForge Contributors [!LICENSE](./LICENSE)
 
 ---
 
