@@ -31,13 +31,11 @@ export async function initializeProject(config: UserAnswers) {
 
     switch(bundler){
         case 'Vite': {
-            logger.info(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`);
-            await execCommand(getViteCommand(packageManager,projectName,language));
+            await execCommand(getViteCommand(packageManager,projectName,language),{verbose: false});
             break;
           }
         case "Ninguno":
-            logger.info(`Gestor de paquetes: ${packageManager} - Bundler: ${bundler} - lenguaje: ${language} - projectName: ${projectName}`)
-            await execCommand(`mkdir ${projectName} && cd ${projectName} && npm init -y`);
+            await execCommand(`mkdir ${projectName} && cd ${projectName} && npm init -y`,{verbose:false});
             break;
         default:
             console.error(`Error: Ingrese un bundler existente.\n`)
@@ -60,15 +58,15 @@ export async function installDeps(config: UserAnswers){
     }
 
     try{
-        logger.title(`Instalando dependencias adicionales: ${depsList}`);
-        await execCommand(`${packageManager} install ${depsList}`);
+        //logger.title(`Instalando dependencias adicionales: ${depsList}`);
+        await execCommand(`${packageManager} install ${depsList}`,{verbose:false});
 
-        logger.info('Ejecutando auditoría de seguridad...');
+        //logger.info('Ejecutando auditoría de seguridad...');
         await runAudit(config);
 
-        logger.success('Dependencias instaladas y auditadas correctamente.');
+        //logger.success('Dependencias instaladas y auditadas correctamente.');
     }catch(error){
-        logger.error('Error en la instalacion o auditoria de dependencias: ')
+        //logger.error('Error en la instalacion o auditoria de dependencias: ')
         if (error instanceof Error){
             logger.error(error.message)
         }else{
@@ -77,6 +75,6 @@ export async function installDeps(config: UserAnswers){
         throw new Error('La instalación fue cancelada debido a vulnerabilidades no resueltas. Por favor revise documentacion de la dependencia.');
     }
 
-    logger.info(`Lista de dependencias para instalar => ${depsList} con gestor de paquetes => ${packageManager}`)
+    //logger.info(`Lista de dependencias para instalar => ${depsList} con gestor de paquetes => ${packageManager}`)
 
 }

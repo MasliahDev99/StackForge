@@ -34,7 +34,7 @@ async function installTailwind(version: string, isModern: boolean) {
   const installCmd = isModern
     ? 'npm install -D tailwindcss@latest @tailwindcss/vite'
     : `npm install -D tailwindcss@${version} postcss autoprefixer`;
-  await execCommand(installCmd);
+  await execCommand(installCmd,{verbose:false});
 }
 
 async function configureTailwind(version: string, isModern: boolean) {
@@ -57,7 +57,7 @@ module.exports = {
     fs.writeFileSync(path.join(process.cwd(), 'tailwind.config.js'), config, 'utf-8');
     logger.success(`✅ tailwind.config.js generado para TailwindCSS ${version}`);
   } else {
-    await execCommand('npx tailwindcss init -p');
+    await execCommand('npx tailwindcss init -p',{verbose:false});
 
     const config = `/** @type {import('tailwindcss').Config} */
 module.exports = {

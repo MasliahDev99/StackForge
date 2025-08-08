@@ -4,14 +4,16 @@
 import { promptUser } from "./cli/prompts";
 import { runCreator } from "./core/creator";
 import { logger } from "./utils/logger"; 
+import { showResume } from './utils/resume'
 
 async function main() {
   const config = await promptUser();
+  
   if (!config) return;
 
   await runCreator(config);
+  showResume(config);
 
-  console.log(`\n✅ Configuración final:\n${JSON.stringify(config, null, 2)}\n`);
 }
 
 main().catch((err) => {

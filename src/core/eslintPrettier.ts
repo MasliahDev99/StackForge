@@ -35,5 +35,5 @@ export async function setupLinting() {
     fs.writeFileSync(path.join(process.cwd(), '.eslintrc.json'), JSON.stringify(eslintConfig, null, 2));
     fs.writeFileSync(path.join(process.cwd(), '.prettierrc'), JSON.stringify(prettierConfig, null, 2));
   
-    logger.success('ESLint y Prettier configurados correctamente.');
+    logger.success('ESLint y Prettier configurados correctamente.\n');
 }

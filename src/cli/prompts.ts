@@ -108,7 +108,7 @@ import {
     let folderStructure: string | undefined = undefined;
     if (createFolders) {
       folderStructure = await text({
-        message: '📂 Ingresá estructura (ej: pages/auth/{index.ts},shared/hooks/{useFetch.ts}):',
+        message: '📂 Ingresá estructura (ej: pages, components, shared/hooks/{useFetch.ts}, admin/users/{index.ts}, admin/settings):',
         validate: (value) =>
           value.trim().length > 0 ? undefined : 'Ingresá una estructura válida.',
       }) as string;
@@ -131,6 +131,8 @@ import {
     if(tailwindVersion !== undefined) result.tailwindVersion = tailwindVersion
     if(depsList !== undefined) result.depsList = depsList
     if(folderStructure !== undefined) result.folderStructure = folderStructure
+
+  
 
     return result
   }
