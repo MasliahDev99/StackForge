@@ -1,6 +1,6 @@
 {
   "name": "stackforge-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI para generar proyectos React + TailwindCSS con arquitectura limpia y automatización completa.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,14 +35,12 @@
   "packageManager": "pnpm@10.13.1",
   "type": "commonjs",
   "devDependencies": {
-    "@eslint/js": "^9.32.0",
+    "@eslint/js": "^9.33.0",
     "@eslint/json": "^0.13.1",
-    "@socketsecurity/cli": "^1.0.85",
-    "@types/cli-progress": "^3.11.6",
-    "@types/node": "^24.2.0",
-    "eslint": "^9.32.0",
+    "@types/node": "^24.2.1",
+    "eslint": "^9.33.0",
     "globals": "^16.3.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.0"
@@ -51,7 +49,7 @@
     "@clack/prompts": "^0.11.0",
     "chalk": "^5.5.0",
     "clak": "^1.0.2",
-    "cli-progress": "^3.12.0",
+    "esbuild": "^0.25.8",
     "execa": "^9.6.0",
     "ora": "^8.2.0"
   }
