@@ -1,0 +1,20 @@
+# Ignorar todo el código fuente TS
+src/
+
+# Ignorar configuraciones del editor y sistema
+.vscode/
+.idea/
+*.log
+.DS_Store
+
+# Ignorar carpetas de tests y datos de desarrollo
+tests/
+coverage/
+node_modules/
+
+# Ignorar archivos de configuración locales que no van al paquete
+.env
+*.local
+
+# Ignorar archivos de build que no quieres subir (si es que tienes otros)
+build/

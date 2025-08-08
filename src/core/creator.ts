@@ -21,7 +21,7 @@ import { logger } from '../utils/logger';
 
 
 export async function runCreator(config: UserAnswers) {
-  console.clear();
+  //console.clear();
   logger.title('INICIANDO GENERACIÓN DEL PROYECTO');
 
 
