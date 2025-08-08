@@ -91,4 +91,4 @@ MIT © 2025 — StackForge Contributors [!LICENSE](./LICENSE)
 
 > **Nota:** StackForge es una herramienta en evolución. Se agradecen las contribuciones y feedback para seguir mejorando la experiencia de desarrollo.
 
-> contacto: 📩 felipe_dev99@outlook.es
+> contacto: 📩 d3vTek-mv@outlook.com
