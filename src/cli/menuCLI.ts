@@ -15,6 +15,7 @@ export async function menuCLI() {
   printBanner();
 
   while (true) {
+
     const option = await select({
       message: chalk.cyan('Seleccione una opción:\n'),
       options: [
@@ -35,7 +36,10 @@ export async function menuCLI() {
         const gitService = new GitService()
         const gitPrompt = new GitPrompt(gitService)
         const config = await gitPrompt.promptGitConfigSimple()
-        if (config) logger.success(`Configuracion github exitosa!`)
+        if (config) {
+          const user = await gitService.getUserName(); // método que consulta la API con el token
+          logger.success(`Configuración GitHub exitosa! Usuario autenticado: ${chalk.cyan(user)}`);
+        }
         break;
 
       case 'createApp':

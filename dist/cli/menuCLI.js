@@ -35,8 +35,10 @@ async function menuCLI() {
                 const gitService = new gitService_1.GitService();
                 const gitPrompt = new gitPrompt_1.GitPrompt(gitService);
                 const config = await gitPrompt.promptGitConfigSimple();
-                if (config)
-                    logger_1.logger.success(`Configuracion github exitosa!`);
+                if (config) {
+                    const user = await gitService.getUserName(); // método que consulta la API con el token
+                    logger_1.logger.success(`Configuración GitHub exitosa! Usuario autenticado: ${chalk_1.default.cyan(user)}`);
+                }
                 break;
             case 'createApp':
                 const answers = await (0, prompts_2.promptUser)();
