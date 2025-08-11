@@ -1,6 +1,9 @@
+import { GitConfig } from "../core/git/domain/gitConfig";
+import { RepoCreationConfig } from "../core/git/domain/repoConfig";
+import { RepoInfo } from "../core/git/domain/repoInfo";
 export interface UserAnswers {
     projectName: string;
-    packageName: string;
+    packageName?: string;
     bundler: 'Vite' | 'Ninguno';
     language: 'TypeScript' | 'JavaScript' | 'JavaScript + SWC' | 'TypeScript + SWC';
     useTailwind: boolean;
@@ -10,5 +13,9 @@ export interface UserAnswers {
     createFolders: boolean;
     folderStructure?: string;
     packageManager: 'npm' | 'pnpm';
+    useGit?: boolean;
+    gitConfig?: GitConfig;
+    repoCreation?: RepoCreationConfig;
+    repoInfo?: RepoInfo;
 }
 //# sourceMappingURL=index.d.ts.map

@@ -47,8 +47,10 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.11.0",
+    "@octokit/rest": "^22.0.0",
     "chalk": "^5.5.0",
     "clak": "^1.0.2",
+    "dotenv": "^17.2.1",
     "esbuild": "^0.25.8",
     "execa": "^9.6.0",
     "ora": "^8.2.0"

@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 
 
-import { promptUser } from "./cli/prompts";
-import { runCreator } from "./core/creator";
+import { promptUser } from "./cli/prompts/prompts";
+import { runCreator } from "./core/project/creator";
 import { showResume } from './utils/resume'
 
 

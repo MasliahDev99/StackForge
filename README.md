@@ -10,7 +10,7 @@
 
 ## 🌟 ¿Qué es StackForge?
 
-StackForge automatiza el setup inicial de proyectos frontend modernos, generando estructuras optimizadas, configuraciones de linters, estilos y seguridad, para que los desarrolladores puedan concentrarse en construir funcionalidades desde el primer minuto sin preocuparse por la configuración base.
+**StackForge** es una herramienta CLI avanzada que automatiza y estandariza la creación de proyectos modernos de frontend con React. Simplifica el setup inicial integrando tecnologías punteras como TailwindCSS, TypeScript, configuración robusta de ESLint y Prettier, y vinculación automática con repositorios Git, acelerando tu productividad desde el primer minuto.
 
 ---
 
@@ -23,6 +23,7 @@ Queremos que StackForge sea el punto de partida estándar para desarrolladores f
 ## 🚀 Casos de uso
 
 - Creación rápida de proyectos React con configuración moderna y optimizada.
+- Vinculación automática con git
 - Integración automática de TailwindCSS para estilos.
 - Setup automático de ESLint y Prettier con reglas recomendadas.
 - Estructura modular y escalable de carpetas y alias para imports.
@@ -38,15 +39,17 @@ Queremos que StackForge sea el punto de partida estándar para desarrolladores f
 - Configuración lista para desarrollo y producción.
 - Auditoría automática de dependencias y fallback seguro.
 - Generación de README inicial y estructura de carpetas personalizable.
+- Vinculación automática de nuevos proyectos con repositorios Git.
 
 ---
 
 ## 🔮 Mejoras futuras
 
-- **Integración con Git:** creación automática de repositorios y commits iniciales durante la creación del proyecto.
+-  Creación de nuevos proyectos a partir de históricos para mejorar la automatización y experiencia del usuario.
 - **Mejoras en la experiencia de usuario:** interfaz CLI más intuitiva, con feedback visual avanzado y soporte para modos rápidos y avanzados.
 - **Enfoque avanzado en seguridad:** incorporación de configuraciones predeterminadas para mitigar riesgos como XSS, inyección SQL, CSPs básicas y otras vulnerabilidades de frontend.
 - **Integración de IA:** incorporación de inteligencia artificial para mejorar la automatización en la creación del proyecto, por ejemplo, generando templates personalizados y arquitecturas dinámicas a partir de descripciones del usuario.
+
 
 ---
 
@@ -96,4 +99,3 @@ MIT © 2025 — StackForge Contributors [!LICENSE](./LICENSE)
 > **Nota:** StackForge es una herramienta en evolución. Se agradecen las contribuciones y feedback para seguir mejorando la experiencia de desarrollo.
 
 > contacto: 📩 d3vTek-mv@outlook.com
-

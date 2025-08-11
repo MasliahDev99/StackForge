@@ -12,8 +12,15 @@ function showResume(config) {
     console.log();
     logger_1.logger.title('🧾 StackForge resume:');
     console.log(chalk_1.default.gray('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
+    if (config.useGit && config.gitConfig?.userName) {
+        console.log(chalk_1.default.cyan(`🤖 Usuario de github 👉 ${config.gitConfig.userName}`));
+        console.log(chalk_1.default.cyan(`📝 Repositorio  👉 ${config.repoInfo?.name}`));
+        console.log(chalk_1.default.cyan(`🔗 Url 👉 ${config.repoInfo?.url}`));
+        console.log(chalk_1.default.cyan(`🪾 Rama principal 👉 ${config.repoInfo?.defaultBranch}`));
+    }
     console.log(chalk_1.default.cyan(`📁 Proyecto: ${config.projectName}`));
-    console.log(chalk_1.default.cyan(`📦 Package: ${config.packageName}`));
+    if (config.bundler === "Vite")
+        console.log(chalk_1.default.cyan(`📦 Package: ${config.packageName}`));
     console.log(chalk_1.default.cyan(`🛠️ Bundler: ${config.bundler}`));
     console.log(chalk_1.default.cyan(`📝 Lenguaje: ${config.language}`));
     console.log(chalk_1.default.cyan(`🎨 Tailwind: ${config.useTailwind ? `Sí (v${config.tailwindVersion})` : 'No'}`));
