@@ -35,7 +35,6 @@ async function promptUser() {
     if (useGit) {
         const token = process.env.GITHUB_TOKEN;
         const userName = process.env.GITHUB_USERNAME;
-        const email = process.env.GITHUB_EMAIL;
         if (!token) {
             console.log("No se encontro el token PAT de GITHUB. Por favor configurá el token primero.");
             return null;
@@ -52,7 +51,6 @@ async function promptUser() {
             gitConfig: {
                 token,
                 userName: userName ?? '',
-                email: email ?? '',
             },
             repoConfig
         };

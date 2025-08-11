@@ -10,6 +10,7 @@ export declare class GitHubClient {
     setToken(token: string): void;
     getToken(): string;
     validateToken(): Promise<boolean>;
+    getUserNameByToken(): Promise<string>;
     /**
      *
      *

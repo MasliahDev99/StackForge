@@ -35,6 +35,9 @@ class GitService {
     getToken() {
         return this.client.getToken();
     }
+    async getUserName() {
+        return await this.client.getUserNameByToken();
+    }
 }
 exports.GitService = GitService;
 //# sourceMappingURL=gitService.js.map

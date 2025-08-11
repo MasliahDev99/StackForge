@@ -9,7 +9,6 @@ const prompts_1 = require("@clack/prompts");
 const chalk_1 = __importDefault(require("chalk"));
 const prompts_2 = require("./prompts/prompts");
 const stackforgeCreateApp_1 = require("../core/project/stackforgeCreateApp");
-//import { runCreator } from '../core/project/creator';
 const resume_1 = require("../utils/resume");
 const gitService_1 = require("../core/git/service/gitService");
 const gitPrompt_1 = require("./prompts/gitPrompt");
@@ -37,8 +36,7 @@ async function menuCLI() {
                 const gitPrompt = new gitPrompt_1.GitPrompt(gitService);
                 const config = await gitPrompt.promptGitConfigSimple();
                 if (config)
-                    logger_1.logger.success(`Datos de la configuracion =>\n${JSON.stringify(config, null, 2)}`);
-                console.log(chalk_1.default.green('Configuracion github exitosa!'));
+                    logger_1.logger.success(`Configuracion github exitosa!`);
                 break;
             case 'createApp':
                 const answers = await (0, prompts_2.promptUser)();

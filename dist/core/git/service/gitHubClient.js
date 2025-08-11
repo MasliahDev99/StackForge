@@ -27,6 +27,15 @@ class GitHubClient {
             return false;
         }
     }
+    async getUserNameByToken() {
+        try {
+            const { data: user } = await this.octokit.rest.users.getAuthenticated();
+            return user.login;
+        }
+        catch (error) {
+            throw new Error('No se pudo obtener el nombre de usuario autenticado.');
+        }
+    }
     /**
      *
      *
@@ -36,7 +45,7 @@ class GitHubClient {
             name: params.name,
             description: params.description,
             private: params.repoVisibility === "Private",
-            auto_init: false, // si esta en true crea repositorio con readme
+            auto_init: false, // si esta en true crea repositorio con real
             default_branch: params.defaultBranch,
         });
         return {

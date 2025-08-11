@@ -3,7 +3,7 @@
  * 
  * 
  */
-import { text, isCancel, select } from '@clack/prompts';
+import { text, isCancel, select, password } from '@clack/prompts';
 import { GitConfig } from '../../core/git/domain/gitConfig';
 import { setGitHubConfig } from '../../core/git/service/envSerivce';
 import { RepoCreationConfig } from '../../core/git/domain/repoConfig';
@@ -18,30 +18,19 @@ export class GitPrompt {
   constructor(service: GitService) { this.gitService = service }
 
   async promptGitConfigSimple(): Promise<GitConfig> {
-    const token = await text({
+    const token = await password({
       message: '🔑 Ingresá tu token de acceso personal de GitHub (PAT):',
       validate: val => val.length > 0 ? undefined : 'El token no puede estar vacío',
     });
     if (isCancel(token)) throw new Error('⛔ Operación cancelada por el usuario.');
 
-    const userName = await text({
-      message: '👤 Ingresá tu nombre de usuario Git (user.name):',
-      validate: val => val.trim().length > 0 ? undefined : 'El nombre de usuario no puede estar vacío',
-    });
-    if (isCancel(userName)) throw new Error('⛔ Operación cancelada por el usuario.');
-
-    const email = await text({
-      message: '📧 Ingresá tu email Git (user.email):',
-      validate: val => /\S+@\S+\.\S+/.test(val) ? undefined : 'Email inválido',
-    });
-    if (isCancel(email)) throw new Error('⛔ Operación cancelada por el usuario.');
-
-
+    
     this.gitService.setToken(token)
+    const userName = await this.gitService.getUserName()
 
     if (await this.gitService.validateToken()) {
       try {
-        await setGitHubConfig({ token, userName, email });
+        await setGitHubConfig({ token, userName });
       } catch (err) {
         console.log('⚠️ Error guardando configuración GitHub:', err);
       }
@@ -49,9 +38,7 @@ export class GitPrompt {
       throw new Error('Token inválido');
     }
     return {
-      token,
-      userName: userName.trim(),
-      email: email.trim(),
+      token 
     };
   }
   async promptRepoConfig(): Promise<RepoCreationConfig> {

@@ -47,6 +47,9 @@ export class GitService{
   getToken(){
     return this.client.getToken()
   }
+  async getUserName(): Promise<string>{
+    return await this.client.getUserNameByToken() 
+  }
 
   
 }

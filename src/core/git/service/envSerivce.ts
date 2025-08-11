@@ -7,7 +7,7 @@ dotenv.config()
 
 const envPath = path.resolve(process.cwd(), '.env');
 
-export async function setGitHubConfig({ token, userName, email }: { token: string; userName: string; email: string }) {
+export async function setGitHubConfig({ token, userName }: { token: string; userName: string;  }) {
   let envContent = '';
   if (fs.existsSync(envPath)) {
     envContent = fs.readFileSync(envPath, 'utf-8');
@@ -25,13 +25,12 @@ export async function setGitHubConfig({ token, userName, email }: { token: strin
 
   updateOrAdd('GITHUB_TOKEN', token);
   updateOrAdd('GITHUB_USERNAME', userName);
-  updateOrAdd('GITHUB_EMAIL', email);
+ 
 
   fs.writeFileSync(envPath, lines.join('\n'));
   // También actualizar en runtime
   process.env.GITHUB_TOKEN = token;
   process.env.GITHUB_USERNAME = userName;
-  process.env.GITHUB_EMAIL = email;
 }
 
 
@@ -52,17 +51,17 @@ function readEnvFile(): Record<string, string> {
     }, {});
 }
 
-export function getGitHubConfig(): { token?: string | undefined; userName?: string | undefined; email?: string | undefined } {
+export function getGitHubConfig(): { token?: string | undefined; userName?: string | undefined; } {
   const envVars = readEnvFile();
   return {
     token: process.env.GITHUB_TOKEN ?? envVars.GITHUB_TOKEN,
     userName: process.env.GITHUB_USERNAME ?? envVars.GITHUB_USERNAME,
-    email: process.env.GITHUB_EMAIL ?? envVars.GITHUB_EMAIL,
+   
   };
 }
 
 
 
 export function isGitHubSessionValid(): boolean {
-    return !!process.env.GITHUB_TOKEN && !!process.env.GITHUB_USERNAME && !!process.env.GITHUB_EMAIL;
+    return !!process.env.GITHUB_TOKEN && !!process.env.GITHUB_USERNAME;
   }

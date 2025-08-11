@@ -2,10 +2,10 @@
   "name": "stackforge-cli",
   "version": "1.0.3",
   "description": "CLI para generar proyectos React + TailwindCSS con arquitectura limpia y automatización completa.",
-  "main": "dist/index.js",
+  "main": "dist/run.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "stackforge": "./bin/index.js"
+    "stackforge": "./bin/run.js"
   },
   "files": [
     "bin",
@@ -14,9 +14,9 @@
     "package.json"
   ],
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node src/run.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/run.js",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
     "prepublishOnly": "npm run build"

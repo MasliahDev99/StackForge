@@ -11,7 +11,7 @@ const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const envPath = path_1.default.resolve(process.cwd(), '.env');
-async function setGitHubConfig({ token, userName, email }) {
+async function setGitHubConfig({ token, userName }) {
     let envContent = '';
     if (fs_1.default.existsSync(envPath)) {
         envContent = fs_1.default.readFileSync(envPath, 'utf-8');
@@ -28,12 +28,10 @@ async function setGitHubConfig({ token, userName, email }) {
     };
     updateOrAdd('GITHUB_TOKEN', token);
     updateOrAdd('GITHUB_USERNAME', userName);
-    updateOrAdd('GITHUB_EMAIL', email);
     fs_1.default.writeFileSync(envPath, lines.join('\n'));
     // También actualizar en runtime
     process.env.GITHUB_TOKEN = token;
     process.env.GITHUB_USERNAME = userName;
-    process.env.GITHUB_EMAIL = email;
 }
 function readEnvFile() {
     if (!fs_1.default.existsSync(envPath))
@@ -57,10 +55,9 @@ function getGitHubConfig() {
     return {
         token: process.env.GITHUB_TOKEN ?? envVars.GITHUB_TOKEN,
         userName: process.env.GITHUB_USERNAME ?? envVars.GITHUB_USERNAME,
-        email: process.env.GITHUB_EMAIL ?? envVars.GITHUB_EMAIL,
     };
 }
 function isGitHubSessionValid() {
-    return !!process.env.GITHUB_TOKEN && !!process.env.GITHUB_USERNAME && !!process.env.GITHUB_EMAIL;
+    return !!process.env.GITHUB_TOKEN && !!process.env.GITHUB_USERNAME;
 }
 //# sourceMappingURL=envSerivce.js.map

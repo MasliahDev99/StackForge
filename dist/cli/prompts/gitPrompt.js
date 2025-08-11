@@ -11,28 +11,17 @@ const envSerivce_1 = require("../../core/git/service/envSerivce");
 class GitPrompt {
     constructor(service) { this.gitService = service; }
     async promptGitConfigSimple() {
-        const token = await (0, prompts_1.text)({
+        const token = await (0, prompts_1.password)({
             message: '🔑 Ingresá tu token de acceso personal de GitHub (PAT):',
             validate: val => val.length > 0 ? undefined : 'El token no puede estar vacío',
         });
         if ((0, prompts_1.isCancel)(token))
             throw new Error('⛔ Operación cancelada por el usuario.');
-        const userName = await (0, prompts_1.text)({
-            message: '👤 Ingresá tu nombre de usuario Git (user.name):',
-            validate: val => val.trim().length > 0 ? undefined : 'El nombre de usuario no puede estar vacío',
-        });
-        if ((0, prompts_1.isCancel)(userName))
-            throw new Error('⛔ Operación cancelada por el usuario.');
-        const email = await (0, prompts_1.text)({
-            message: '📧 Ingresá tu email Git (user.email):',
-            validate: val => /\S+@\S+\.\S+/.test(val) ? undefined : 'Email inválido',
-        });
-        if ((0, prompts_1.isCancel)(email))
-            throw new Error('⛔ Operación cancelada por el usuario.');
         this.gitService.setToken(token);
+        const userName = await this.gitService.getUserName();
         if (await this.gitService.validateToken()) {
             try {
-                await (0, envSerivce_1.setGitHubConfig)({ token, userName, email });
+                await (0, envSerivce_1.setGitHubConfig)({ token, userName });
             }
             catch (err) {
                 console.log('⚠️ Error guardando configuración GitHub:', err);
@@ -42,9 +31,7 @@ class GitPrompt {
             throw new Error('Token inválido');
         }
         return {
-            token,
-            userName: userName.trim(),
-            email: email.trim(),
+            token
         };
     }
     async promptRepoConfig() {

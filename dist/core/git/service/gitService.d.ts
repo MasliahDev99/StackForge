@@ -13,5 +13,6 @@ export declare class GitService {
     gitPush(pathDestino: string, branch?: string, message?: string, verbose?: boolean): Promise<void>;
     setToken(token: string): void;
     getToken(): string;
+    getUserName(): Promise<string>;
 }
 //# sourceMappingURL=gitService.d.ts.map
