@@ -43,6 +43,83 @@ Queremos que StackForge sea el punto de partida estándar para desarrolladores f
 
 ---
 
+## 🔑 Autenticación y usuario de Git
+
+Cuando StackForge crea un repositorio en GitHub y realiza el primer `git push`, Git utiliza el **usuario y correo configurados en tu instalación de Git** (`~/.gitconfig` o `.git/config`).  
+Si estos datos no coinciden con la cuenta asociada al **token personal de GitHub** que configuraste en StackForge, el push fallará por falta de permisos.
+
+**Recomendación:**
+- Configurá tu nombre y correo globales de Git para que coincidan con la cuenta del token:
+  ```bash
+  git config --global user.name "TU_USUARIO_GITHUB"
+  git config --global user.email "tu-email@ejemplo.com"
+  ```
+- Generá el token desde la misma cuenta de GitHub y con los permisos requeridos: `repo` y `read:user`.
+
+---
+
+
+## 📂 Definir estructura personalizada de carpetas y archivos
+
+En StackForge podés definir la estructura inicial de tu proyecto escribiendo la ruta de carpetas y archivos en un solo input, separando elementos por comas.
+
+### 1️⃣ Carpetas vacías
+```
+pages, components, hooks
+```
+Esto crea:
+```
+src/pages/
+src/components/
+src/hooks/
+```
+
+### 2️⃣ Carpetas anidadas
+```
+pages/admin/users
+```
+Esto crea:
+```
+src/pages/admin/users/
+```
+
+### 3️⃣ Archivos dentro de carpetas
+```
+pages, components/{Header.tsx, Footer.tsx}
+```
+Esto crea:
+```
+src/pages/
+src/components/Header.tsx
+src/components/Footer.tsx
+```
+
+### 4️⃣ Carpetas anidadas con archivos
+```
+pages/admin/{index.tsx, AdminPanel.tsx}, shared/hooks/{useFetch.ts}
+```
+Esto crea:
+```
+src/pages/admin/index.tsx
+src/pages/admin/AdminPanel.tsx
+src/shared/hooks/useFetch.ts
+```
+
+### 5️⃣ Combinación de carpetas y archivos
+```
+pages, components/[UI/{Button.tsx, index.ts}, Home/{Home.tsx}], adapters
+```
+Esto crea:
+```
+src/pages/
+src/components/UI/Button.tsx
+src/components/UI/index.ts
+src/components/Home/Home.tsx
+src/adapters/
+```
+
+💡 **Tip:** Usá `{}` para definir archivos dentro de una carpeta, y `/` para crear subcarpetas.
+
 ## 🔮 Mejoras futuras
 
 -  Creación de nuevos proyectos a partir de históricos para mejorar la automatización y experiencia del usuario.
@@ -54,21 +131,17 @@ Queremos que StackForge sea el punto de partida estándar para desarrolladores f
 ---
 
 
-## 📸 Ejemplo de ejecución CLI completa
+## 🎬 Demo en Video
+
+Para ver una demostración completa de StackForge CLI en acción, podés acceder al siguiente video:
+
+[![Demo StackForge CLI](https://img.youtube.com/vi/OSmmhkYobVg/hqdefault.jpg)](https://youtu.be/OSmmhkYobVg)
+
+---
+
+Este video muestra la configuración de StackForge, desde la inicialización hasta la creación y vinculación del repositorio Git, todo automatizado desde la CLI.
 
 
-
-![Inicialización del proyecto e interacción con el usuario](https://raw.githubusercontent.com/MasliahDev99/StackForge/rc-1.0.0/docs/StackForge_init.png)
-
-*Inicialización del proyecto e interacción con el usuario*
-
-![Estructura generada del proyecto](https://raw.githubusercontent.com/MasliahDev99/StackForge/rc-1.0.0/docs/StackForge_proyecto.png)
-
-*Estructura generada del proyecto*
-
-![Resumen final del proyecto creado](https://raw.githubusercontent.com/MasliahDev99/StackForge/rc-1.0.0/docs/StackForge_resume.png)
-
-*Resumen final del proyecto creado*
 
 ---
 ## Instalación y Uso
