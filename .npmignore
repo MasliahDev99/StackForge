@@ -15,6 +15,7 @@ node_modules/
 # Ignorar archivos de configuración locales que no van al paquete
 .env
 *.local
+mejoras.md
 
 # Ignorar archivos de build que no quieres subir (si es que tienes otros)
 build/

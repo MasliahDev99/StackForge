@@ -161,6 +161,12 @@ npx stackforge
 ```
 
 
+## 🆕 Novedades en la versión 
+
+- Mejor organización del código, modularización y limpieza siguiendo buenas prácticas SOLID.
+- Corrección en la instalación de TailwindCSS para proyectos sin bundler ("Ninguno"), evitando la instalación innecesaria de Vite.
+- Optimización del flujo de creación de proyectos para mayor estabilidad y claridad.
+
 
 ---
 ## 📄 Licencia
