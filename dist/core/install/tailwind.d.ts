@@ -9,5 +9,10 @@
  *
  */
 import { UserAnswers } from '../../types';
-export declare function setupTailwind(config: UserAnswers): Promise<void>;
+import { IInstaller } from './domain/iInstaller';
+import { setupTailwind } from './setups/setupTailwind';
+export declare class TailwindInstaller implements IInstaller {
+    install(config: UserAnswers): Promise<void>;
+}
+export { setupTailwind };
 //# sourceMappingURL=tailwind.d.ts.map

@@ -3,9 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ReadmeGenerator = void 0;
 exports.generateReadme = generateReadme;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+class ReadmeGenerator {
+    async execute(config) {
+        await generateReadme(config);
+    }
+}
+exports.ReadmeGenerator = ReadmeGenerator;
 async function generateReadme(config) {
     const { projectName, packageManager, tailwindVersion, folderStructure, language, bundler } = config;
     const content = `# ${projectName}

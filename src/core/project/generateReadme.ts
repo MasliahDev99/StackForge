@@ -1,6 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import { UserAnswers } from '../../types';
+import { IProjectStep } from './domain/iProjectStep';
+
+export class ReadmeGenerator implements IProjectStep {
+  async execute(config: UserAnswers): Promise<void> {
+    await generateReadme(config)
+  }
+}
+
 
 export async function generateReadme(config: UserAnswers) {
   const { projectName, packageManager, tailwindVersion, folderStructure, language,bundler } = config;

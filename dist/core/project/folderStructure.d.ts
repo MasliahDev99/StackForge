@@ -7,9 +7,11 @@
  * - "[]" → Agrupación de rutas y archivos al mismo nivel
  * - "," → Separación de elementos hermanos
  */
-type FolderStructureConfig = {
-    folderStructure?: string;
-};
-export declare function createFolderStructure({ folderStructure }: FolderStructureConfig): Promise<void>;
-export {};
+import { IProjectStep } from './domain/iProjectStep';
+import { UserAnswers } from '../../types';
+import { createFolderStructure } from './setup/createFolder';
+export declare class FolderStructureCreator implements IProjectStep {
+    execute(config: UserAnswers): Promise<void>;
+}
+export { createFolderStructure };
 //# sourceMappingURL=folderStructure.d.ts.map

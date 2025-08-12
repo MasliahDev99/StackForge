@@ -1,0 +1,1 @@
+{"version":3,"file":"iProjectStep.d.ts","sourceRoot":"","sources":["../../../../src/core/project/domain/iProjectStep.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,gBAAgB,CAAC;AAE7C,MAAM,WAAW,YAAY;IAC3B,OAAO,CAAC,MAAM,EAAE,WAAW,GAAG,OAAO,CAAC,IAAI,CAAC,CAAC;CAC7C"}
