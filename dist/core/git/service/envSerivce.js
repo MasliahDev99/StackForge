@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * Módulo para la gestión de la configuración de GitHub mediante variables de entorno.
+ * Permite establecer, obtener y validar la configuración relacionada con GitHub
+ * almacenada en el archivo `.env` y en las variables de entorno en tiempo de ejecución.
+ */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -11,6 +16,13 @@ const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const envPath = path_1.default.resolve(process.cwd(), '.env');
+/**
+ * Establece la configuración de GitHub actualizando el archivo `.env` y las variables de entorno en tiempo de ejecución.
+ *
+ * @param {Object} params - Objeto con los parámetros necesarios para la configuración.
+ * @param {string} params.token - Token de autenticación de GitHub.
+ * @param {string} params.userName - Nombre de usuario de GitHub.
+ */
 async function setGitHubConfig({ token, userName }) {
     let envContent = '';
     if (fs_1.default.existsSync(envPath)) {
@@ -50,6 +62,13 @@ function readEnvFile() {
         return acc;
     }, {});
 }
+/**
+ * Obtiene la configuración actual de GitHub desde las variables de entorno o el archivo `.env`.
+ *
+ * @returns {Object} Objeto con el token y nombre de usuario de GitHub, si están definidos.
+ * @returns {string | undefined} [token] - Token de autenticación de GitHub.
+ * @returns {string | undefined} [userName] - Nombre de usuario de GitHub.
+ */
 function getGitHubConfig() {
     const envVars = readEnvFile();
     return {
@@ -57,6 +76,11 @@ function getGitHubConfig() {
         userName: process.env.GITHUB_USERNAME ?? envVars.GITHUB_USERNAME,
     };
 }
+/**
+ * Verifica si la sesión de GitHub es válida comprobando que existan el token y el nombre de usuario en las variables de entorno.
+ *
+ * @returns {boolean} `true` si ambos valores están definidos, `false` en caso contrario.
+ */
 function isGitHubSessionValid() {
     return !!process.env.GITHUB_TOKEN && !!process.env.GITHUB_USERNAME;
 }
