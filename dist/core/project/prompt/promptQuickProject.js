@@ -138,8 +138,6 @@ async function PromptQuickProject() {
     else {
         result.createFolders = quickConfig.createFolders;
     }
-    // Traza
-    console.table(result);
     // 9. installDeps
     if (quickConfig.installDeps === undefined) {
         const depsConfig = await (0, prompts_2.promptDepsConfig)();
