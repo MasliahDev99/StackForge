@@ -137,8 +137,8 @@ Seguí las instrucciones interactivas para configurar tu proyecto.
 
 ## 🎬 Demo en video
 Mirá StackForge en acción:  
-<a href="https://www.youtube.com/watch?v=OSmmhkYobVg" target="_blank">
-  <img src="https://img.youtube.com/vi/OSmmhkYobVg/hqdefault.jpg" alt="Demo de StackForge" width="480" />
+<a href="https://youtu.be/zjO6aHwSdzk" target="_blank">
+  <img src="https://img.youtube.com/vi/zjO6aHwSdzk/hqdefault.jpg" alt="Demo de StackForge" width="480" />
 </a>
 
 ---
