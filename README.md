@@ -146,3 +146,4 @@ Mirá StackForge en acción:
 ## 📄 Licencia
 Este proyecto está bajo la licencia MIT.  
 Consultá el archivo [LICENSE](LICENSE) para más detalles.
+.
