@@ -8,7 +8,7 @@
  * - "," → Separación de elementos hermanos
  */
 import { IProjectStep } from './domain/iProjectStep';
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { createFolderStructure } from './setup/createFolder';
 export declare class FolderStructureCreator implements IProjectStep {
     execute(config: UserAnswers): Promise<void>;

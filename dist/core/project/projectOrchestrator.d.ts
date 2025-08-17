@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 import { ProjectInstaller } from "../install/projectInstaller";
 import { ProjectScaffolder } from "../install/projectScaffolder";
 import { ProjectCreatorManager } from "./projectCreatorManager";

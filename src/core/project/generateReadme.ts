@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { IProjectStep } from './domain/iProjectStep';
 
 export class ReadmeGenerator implements IProjectStep {

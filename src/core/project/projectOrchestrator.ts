@@ -1,6 +1,6 @@
 import path from "path";
 import fs from 'fs'
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 import { logger } from "../../utils/logger";
 import { ProjectInstaller } from "../install/projectInstaller";
 import { ProjectScaffolder } from "../install/projectScaffolder";

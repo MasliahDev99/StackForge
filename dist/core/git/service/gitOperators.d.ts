@@ -1,5 +1,5 @@
 import { GitOps } from "../domain/gitOps";
-import { UserAnswers } from "../../../types";
+import { UserAnswers } from "../../../types/UserAnswer";
 import { RepoInfo } from "../domain/repoInfo";
 import { GitHubClient } from "./gitHubClient";
 /**

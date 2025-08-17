@@ -12,6 +12,7 @@
 *.env
 *.dist
 
+roadmap.md
 mejoras.md
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

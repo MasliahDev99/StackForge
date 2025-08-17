@@ -1,5 +1,5 @@
 export interface GitConfig {
-    token?: string;
+    token?: string | undefined;
     userName?: string;
 }
 //# sourceMappingURL=gitConfig.d.ts.map

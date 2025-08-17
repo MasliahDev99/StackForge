@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../../types";
+import { UserAnswers } from "../../../types/UserAnswer";
 import { RepoInfo } from "../domain/repoInfo";
 /**
  * Clase que proporciona una interfaz de alto nivel para interactuar con repositorios Git y GitHub.

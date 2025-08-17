@@ -10,7 +10,7 @@
  */
 
 import { execCommand } from '../../utils/exec';
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { logger } from '../../utils/logger';
 
 

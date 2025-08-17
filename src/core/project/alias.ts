@@ -7,7 +7,7 @@
  *  
  */
 
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { IProjectStep } from './domain/iProjectStep';
 import { setupAliases } from './setup/setupAliases';
 

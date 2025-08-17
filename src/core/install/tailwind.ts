@@ -8,7 +8,7 @@
  *  - Modificar index.css con directivas @tailwind
  * 
  */
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { IInstaller } from './domain/iInstaller';
 import { setupTailwind } from './setups/setupTailwind';
 

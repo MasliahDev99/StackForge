@@ -1,4 +1,4 @@
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { ProjectOrchestrator } from './projectOrchestrator';
 import { logger } from '../../utils/logger';
 

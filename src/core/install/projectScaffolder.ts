@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 import { IScaffolder } from "./domain/iScaffolder";
 import { logger } from "../../utils/logger";
 import { scaffoldProject } from "./setups/scaffoldProject";

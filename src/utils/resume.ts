@@ -1,7 +1,7 @@
 // src/utils/resume.ts
 
 import chalk from 'chalk';
-import { UserAnswers } from '../types';
+import { UserAnswers } from '../types/UserAnswer';
 import { logger } from './logger';
 
 export function showResume(config: UserAnswers): void {

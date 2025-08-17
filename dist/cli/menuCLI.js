@@ -7,20 +7,16 @@ exports.menuCLI = menuCLI;
 const banner_1 = require("../utils/banner");
 const prompts_1 = require("@clack/prompts");
 const chalk_1 = __importDefault(require("chalk"));
-const prompts_2 = require("./prompts/prompts");
-const stackforgeCreateApp_1 = require("../core/project/stackforgeCreateApp");
-const resume_1 = require("../utils/resume");
-const gitService_1 = require("../core/git/service/gitService");
-const gitPrompt_1 = require("./prompts/gitPrompt");
-const logger_1 = require("../utils/logger");
+const menuConfig_1 = require("./menu/menuConfig");
+const menuCreateApp_1 = require("./menu/menuCreateApp");
 async function menuCLI() {
-    console.clear();
-    (0, banner_1.printBanner)();
     while (true) {
+        console.clear();
+        (0, banner_1.printBanner)();
         const option = await (0, prompts_1.select)({
             message: chalk_1.default.cyan('Seleccione una opción:\n'),
             options: [
-                { label: 'Configurar GitHub', value: 'configGit' },
+                { label: 'Configuración', value: 'config' },
                 { label: 'Crear aplicación', value: 'createApp' },
                 { label: 'Salir', value: 'exit' },
             ],
@@ -31,21 +27,13 @@ async function menuCLI() {
             return;
         }
         switch (option) {
-            case 'configGit':
-                const gitService = new gitService_1.GitService();
-                const gitPrompt = new gitPrompt_1.GitPrompt(gitService);
-                const config = await gitPrompt.promptGitConfigSimple();
-                if (config) {
-                    const user = await gitService.getUserName(); // método que consulta la API con el token
-                    logger_1.logger.success(`Configuración GitHub exitosa! Usuario autenticado: ${chalk_1.default.cyan(user)}`);
-                }
+            case 'config':
+                console.clear();
+                await (0, menuConfig_1.menuConfig)();
                 break;
             case 'createApp':
-                const answers = await (0, prompts_2.promptUser)();
-                if (!answers)
-                    return;
-                await (0, stackforgeCreateApp_1.sfCreateApp)(answers);
-                (0, resume_1.showResume)(answers);
+                console.clear();
+                await (0, menuCreateApp_1.menuCreateApp)();
                 break;
             case 'exit':
                 console.clear();

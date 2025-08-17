@@ -1,4 +1,4 @@
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 import { IProjectStep } from './domain/iProjectStep';
 export declare class ReadmeGenerator implements IProjectStep {
     execute(config: UserAnswers): Promise<void>;

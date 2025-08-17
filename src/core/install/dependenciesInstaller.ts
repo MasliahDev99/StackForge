@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 import { execCommand } from "../../utils/exec";
 import { logger } from "../../utils/logger";
 import { runAudit } from "../audit/audit";

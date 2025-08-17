@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 export declare class ProjectCreatorManager {
     private steps;
     constructor();

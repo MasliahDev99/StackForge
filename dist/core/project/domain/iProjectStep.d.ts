@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../../types";
+import { UserAnswers } from "../../../types/UserAnswer";
 export interface IProjectStep {
     execute(config: UserAnswers): Promise<void>;
 }

@@ -8,6 +8,6 @@
  *  Nota: En el futuro se puede integrar Socket.dev, Snyk u otras herramientas
  *  para auditorías más avanzadas con autenticación y escaneo profundo.
  */
-import { UserAnswers } from '../../types';
+import { UserAnswers } from '../../types/UserAnswer';
 export declare function runAudit(config: UserAnswers): Promise<void>;
 //# sourceMappingURL=audit.d.ts.map

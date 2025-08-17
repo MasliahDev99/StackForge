@@ -1,5 +1,5 @@
 import { execCommand } from '../../../utils/exec'
-import { UserAnswers } from "../../../types";
+import { UserAnswers } from "../../../types/UserAnswer";
 
 
 

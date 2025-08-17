@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 import { AliasConfigurator } from "./alias";
 import { IProjectStep } from "./domain/iProjectStep";
 import { FolderStructureCreator } from "./folderStructure";

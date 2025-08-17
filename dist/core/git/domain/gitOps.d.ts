@@ -1,4 +1,4 @@
-import { UserAnswers } from "../../../types";
+import { UserAnswers } from "../../../types/UserAnswer";
 import { RepoInfo } from "./repoInfo";
 export interface GitOps {
     createRepo(config: UserAnswers): Promise<RepoInfo>;

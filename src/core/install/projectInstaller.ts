@@ -13,7 +13,7 @@
  *
  * @implements {IInstaller}
  */
-import { UserAnswers } from "../../types";
+import { UserAnswers } from "../../types/UserAnswer";
 import { IInstaller } from './domain/iInstaller';
 
 
