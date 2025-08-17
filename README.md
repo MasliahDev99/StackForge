@@ -1,6 +1,6 @@
 # ⚡ StackForge
 
-![Logo y bienvenida de StackForge CLI](https://raw.githubusercontent.com/MasliahDev99/StackForge/rc-1.0.0/docs/STACKFORGE_LOGO.webp)
+![Logo y bienvenida de StackForge CLI](https://github.com/MasliahDev99/StackForge/blob/rc-1.0.5/docs/STACKFORGE_LOGO.webp)
 
 > 🚀 La CLI para crear proyectos **React + Tailwind + TypeScript** en segundos, con **presets reutilizables**, configuración automatizada y auditoría de dependencias.
 
@@ -137,7 +137,9 @@ Seguí las instrucciones interactivas para configurar tu proyecto.
 
 ## 🎬 Demo en video
 Mirá StackForge en acción:  
-[!Demo de StackForge](https://www.youtube.com/watch?v=OSmmhkYobVg)
+<a href="https://www.youtube.com/watch?v=OSmmhkYobVg" target="_blank">
+  <img src="https://img.youtube.com/vi/OSmmhkYobVg/hqdefault.jpg" alt="Demo de StackForge" width="480" />
+</a>
 
 ---
 
