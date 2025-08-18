@@ -1,6 +1,6 @@
 {
   "name": "stackforge-cli",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "CLI para generar proyectos React + TailwindCSS con arquitectura limpia y automatización completa.",
   "main": "dist/run.js",
   "types": "dist/index.d.ts",
