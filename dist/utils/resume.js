@@ -30,4 +30,3 @@ function showResume(config) {
     console.log(chalk_1.default.cyan(`📚 Dependencias: ${config.installDeps ? config.depsList || 'Ninguna extra' : 'No se instalaron'}`));
     console.log(chalk_1.default.gray('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
 }
-//# sourceMappingURL=resume.js.map

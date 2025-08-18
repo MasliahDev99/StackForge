@@ -8,4 +8,3 @@ async function sfCreateApp(config) {
     const orchestrator = new projectOrchestrator_1.ProjectOrchestrator();
     await orchestrator.run(config);
 }
-//# sourceMappingURL=stackforgeCreateApp.js.map

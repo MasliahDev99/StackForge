@@ -40,4 +40,3 @@ export declare class GitHubClient {
      */
     createRepository(params: RepoCreationConfig): Promise<RepoInfo>;
 }
-//# sourceMappingURL=gitHubClient.d.ts.map

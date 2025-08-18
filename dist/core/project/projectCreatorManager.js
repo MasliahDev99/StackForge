@@ -19,4 +19,3 @@ class ProjectCreatorManager {
     }
 }
 exports.ProjectCreatorManager = ProjectCreatorManager;
-//# sourceMappingURL=projectCreatorManager.js.map

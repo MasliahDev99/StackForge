@@ -21,4 +21,3 @@ function clearQuickConfig() {
         console.log(chalk_1.default.yellow('No se encontró configuración de proyecto rápido para limpiar.'));
     }
 }
-//# sourceMappingURL=clearQuick.js.map

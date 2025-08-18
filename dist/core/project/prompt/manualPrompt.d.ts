@@ -8,4 +8,3 @@ export declare class ManualPrompt extends ProjectPrompt {
     constructor();
     run(): Promise<UserAnswers | null>;
 }
-//# sourceMappingURL=manualPrompt.d.ts.map

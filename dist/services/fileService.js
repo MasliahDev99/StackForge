@@ -24,4 +24,3 @@ class FileService {
     }
 }
 exports.FileService = FileService;
-//# sourceMappingURL=fileService.js.map

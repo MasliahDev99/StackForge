@@ -82,4 +82,3 @@ class GitPrompt {
     }
 }
 exports.GitPrompt = GitPrompt;
-//# sourceMappingURL=gitPrompt.js.map

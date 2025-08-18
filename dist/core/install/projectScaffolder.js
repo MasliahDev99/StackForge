@@ -11,4 +11,3 @@ class ProjectScaffolder {
     }
 }
 exports.ProjectScaffolder = ProjectScaffolder;
-//# sourceMappingURL=projectScaffolder.js.map

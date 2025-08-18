@@ -74,4 +74,3 @@ export declare class GitOperator implements GitOps {
      */
     gitPush(pathDestino: string, branch?: string, message?: string, verbose?: boolean): Promise<void>;
 }
-//# sourceMappingURL=gitOperators.d.ts.map

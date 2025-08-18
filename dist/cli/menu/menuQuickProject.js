@@ -122,4 +122,3 @@ async function menuQuickProject() {
     console.log(chalk_1.default.green("✅ Configuración rápida guardada"));
     console.log(chalk_1.default.blueBright(`Archivo guardado en: ${configPath}`));
 }
-//# sourceMappingURL=menuQuickProject.js.map

@@ -86,4 +86,3 @@ function execCommand(command, opts = {}) {
         }
     });
 }
-//# sourceMappingURL=exec.js.map

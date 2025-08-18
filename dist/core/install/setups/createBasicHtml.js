@@ -53,4 +53,3 @@ function createBasicIndexHtmlIfNone() {
     fs_1.default.writeFileSync(indexPath, htmlContent, 'utf-8');
     logger_1.logger.success('✅ index.html base creado con Tailwind CDN para modo sin bundler.');
 }
-//# sourceMappingURL=createBasicHtml.js.map

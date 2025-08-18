@@ -17,4 +17,3 @@ export declare abstract class ProjectPrompt {
     constructor(name: string);
     abstract run(): Promise<UserAnswers | null>;
 }
-//# sourceMappingURL=projectPrompt.d.ts.map

@@ -154,4 +154,3 @@ class GitOperator {
     }
 }
 exports.GitOperator = GitOperator;
-//# sourceMappingURL=gitOperators.js.map

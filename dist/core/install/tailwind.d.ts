@@ -15,4 +15,3 @@ export declare class TailwindInstaller implements IInstaller {
     install(config: UserAnswers): Promise<void>;
 }
 export { setupTailwind };
-//# sourceMappingURL=tailwind.d.ts.map

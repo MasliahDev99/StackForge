@@ -5,4 +5,3 @@ export declare const logger: {
     error: (msg: string) => void;
     title: (msg: string) => void;
 };
-//# sourceMappingURL=logger.d.ts.map

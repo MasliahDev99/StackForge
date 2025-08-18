@@ -30,4 +30,3 @@ class DependenciesInstaller {
     }
 }
 exports.DependenciesInstaller = DependenciesInstaller;
-//# sourceMappingURL=dependenciesInstaller.js.map

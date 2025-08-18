@@ -5,4 +5,3 @@ export interface RepoCreationConfig {
     autoInit: boolean;
     defaultBranch?: string;
 }
-//# sourceMappingURL=repoConfig.d.ts.map

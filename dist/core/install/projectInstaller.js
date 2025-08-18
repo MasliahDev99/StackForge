@@ -19,4 +19,3 @@ class ProjectInstaller {
     }
 }
 exports.ProjectInstaller = ProjectInstaller;
-//# sourceMappingURL=projectInstaller.js.map

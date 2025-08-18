@@ -4,4 +4,3 @@ export declare class FileService {
     readConfig<T>(): T | null;
     saveConfig<T>(data: T): void;
 }
-//# sourceMappingURL=fileService.d.ts.map

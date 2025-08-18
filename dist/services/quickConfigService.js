@@ -25,4 +25,3 @@ class QuickConfigService {
     }
 }
 exports.quickConfigService = new QuickConfigService();
-//# sourceMappingURL=quickConfigService.js.map

@@ -27,4 +27,3 @@ class QickPrompt extends projectPrompt_1.ProjectPrompt {
     }
 }
 exports.QickPrompt = QickPrompt;
-//# sourceMappingURL=quickPrompt.js.map

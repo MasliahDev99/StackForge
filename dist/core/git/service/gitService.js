@@ -104,4 +104,3 @@ class GitService {
     }
 }
 exports.GitService = GitService;
-//# sourceMappingURL=gitService.js.map

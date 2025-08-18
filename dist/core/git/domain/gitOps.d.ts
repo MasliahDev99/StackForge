@@ -8,4 +8,3 @@ export interface GitOps {
     removeRemoteIfExists(remoteName: string, path: string, verbose: boolean): Promise<void>;
     gitPush(path: string, branch?: string, message?: string, verbose?: boolean): Promise<void>;
 }
-//# sourceMappingURL=gitOps.d.ts.map

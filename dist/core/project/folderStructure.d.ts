@@ -14,4 +14,3 @@ export declare class FolderStructureCreator implements IProjectStep {
     execute(config: UserAnswers): Promise<void>;
 }
 export { createFolderStructure };
-//# sourceMappingURL=folderStructure.d.ts.map

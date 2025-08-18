@@ -183,4 +183,3 @@ async function PromptQuickProject() {
     }
     return result;
 }
-//# sourceMappingURL=promptQuickProject.js.map

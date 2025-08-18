@@ -16,4 +16,3 @@ export declare class QickPrompt extends ProjectPrompt {
     constructor();
     run(): Promise<UserAnswers | null>;
 }
-//# sourceMappingURL=quickPrompt.d.ts.map

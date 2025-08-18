@@ -20,4 +20,3 @@ class FolderStructureCreator {
     }
 }
 exports.FolderStructureCreator = FolderStructureCreator;
-//# sourceMappingURL=folderStructure.js.map

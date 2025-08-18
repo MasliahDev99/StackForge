@@ -12,4 +12,3 @@ export interface QuickConfig {
     tailwindVersion: tailwindVersionType;
     packageManager: packageManagerType;
 }
-//# sourceMappingURL=quickConfig.d.ts.map

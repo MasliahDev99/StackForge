@@ -28,4 +28,3 @@ async function setupLinting() {
     fs_1.default.writeFileSync(path_1.default.join(process.cwd(), '.prettierrc'), JSON.stringify(prettierConfig, null, 2));
     logger_1.logger.success('ESLint y Prettier configurados correctamente.\n');
 }
-//# sourceMappingURL=setupLinting.js.map

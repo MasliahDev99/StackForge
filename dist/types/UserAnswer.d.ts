@@ -19,4 +19,3 @@ export interface UserAnswers {
     repoCreation?: RepoCreationConfig;
     repoInfo?: RepoInfo;
 }
-//# sourceMappingURL=UserAnswer.d.ts.map

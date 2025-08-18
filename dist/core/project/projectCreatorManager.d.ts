@@ -4,4 +4,3 @@ export declare class ProjectCreatorManager {
     constructor();
     create(config: UserAnswers): Promise<void>;
 }
-//# sourceMappingURL=projectCreatorManager.d.ts.map

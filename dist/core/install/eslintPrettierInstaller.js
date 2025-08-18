@@ -9,4 +9,3 @@ class ESLintPrettierInstaller {
     }
 }
 exports.ESLintPrettierInstaller = ESLintPrettierInstaller;
-//# sourceMappingURL=eslintPrettierInstaller.js.map

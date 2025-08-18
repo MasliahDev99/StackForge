@@ -21,4 +21,3 @@ class ManualPrompt extends projectPrompt_1.ProjectPrompt {
     }
 }
 exports.ManualPrompt = ManualPrompt;
-//# sourceMappingURL=manualPrompt.js.map

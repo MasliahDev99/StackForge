@@ -79,4 +79,3 @@ export declare class GitService {
      */
     getUserName(): Promise<string>;
 }
-//# sourceMappingURL=gitService.d.ts.map

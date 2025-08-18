@@ -84,4 +84,3 @@ function getGitHubConfig() {
 function isGitHubSessionValid() {
     return !!process.env.GITHUB_TOKEN && !!process.env.GITHUB_USERNAME;
 }
-//# sourceMappingURL=envSerivce.js.map

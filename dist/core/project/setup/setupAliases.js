@@ -70,4 +70,3 @@ function updateViteAlias() {
     fs_1.default.writeFileSync(viteConfigFile, updated);
     logger_1.logger.success(`Alias configurado en ${path_1.default.basename(viteConfigFile)}`);
 }
-//# sourceMappingURL=setupAliases.js.map

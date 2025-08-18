@@ -9,4 +9,3 @@ export type ExecOptions = {
  * - devuelve una Promise que se resuelve cuando el proceso termina con exit code 0.
  */
 export declare function execCommand(command: string, opts?: ExecOptions): Promise<void>;
-//# sourceMappingURL=exec.d.ts.map

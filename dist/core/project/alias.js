@@ -17,4 +17,3 @@ class AliasConfigurator {
     }
 }
 exports.AliasConfigurator = AliasConfigurator;
-//# sourceMappingURL=alias.js.map

@@ -5,4 +5,3 @@ async function main() {
     await (0, menuCLI_1.menuCLI)();
 }
 main();
-//# sourceMappingURL=run.js.map

@@ -3,4 +3,3 @@ export interface RepoInfo {
     name: string;
     defaultBranch: string;
 }
-//# sourceMappingURL=repoInfo.d.ts.map

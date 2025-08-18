@@ -248,4 +248,3 @@ async function promptFolderStructureConfig() {
     }
     return { createFolders: false };
 }
-//# sourceMappingURL=prompts.js.map

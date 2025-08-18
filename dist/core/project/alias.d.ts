@@ -13,4 +13,3 @@ export declare class AliasConfigurator implements IProjectStep {
     execute(config: UserAnswers): Promise<void>;
 }
 export { setupAliases };
-//# sourceMappingURL=alias.d.ts.map

@@ -24,4 +24,3 @@ async function scaffoldProject(config) {
             break;
     }
 }
-//# sourceMappingURL=scaffoldProject.js.map

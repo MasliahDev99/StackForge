@@ -46,4 +46,3 @@ export declare function promptDepsConfig(): Promise<Pick<UserAnswers, 'installDe
 export declare function promptFolderStructureConfig(): Promise<Pick<UserAnswers, 'createFolders' | 'folderStructure'> | {
     createFolders: boolean;
 } | null>;
-//# sourceMappingURL=prompts.d.ts.map

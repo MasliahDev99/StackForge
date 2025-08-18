@@ -13,4 +13,3 @@ export declare class ESLintPrettierInstaller implements IInstaller {
     install(config: UserAnswers): Promise<void>;
 }
 export { setupLinting };
-//# sourceMappingURL=eslintPrettierInstaller.d.ts.map

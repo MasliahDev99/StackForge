@@ -11,4 +11,3 @@ class TailwindInstaller {
     }
 }
 exports.TailwindInstaller = TailwindInstaller;
-//# sourceMappingURL=tailwind.js.map

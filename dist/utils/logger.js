@@ -12,4 +12,3 @@ exports.logger = {
     error: (msg) => console.error(`${chalk_1.default.red('✖ ERROR')}   → ${msg}`),
     title: (msg) => console.log(`\n${chalk_1.default.magenta.bold('=== ' + msg.toUpperCase() + ' ===')}`),
 };
-//# sourceMappingURL=logger.js.map

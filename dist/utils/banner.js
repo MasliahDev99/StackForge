@@ -18,4 +18,3 @@ function printBanner() {
    `));
     console.log(chalk_1.default.gray('  ⚡ StackForge - Tu CLI para proyectos React + Tailwind + TS\n'));
 }
-//# sourceMappingURL=banner.js.map

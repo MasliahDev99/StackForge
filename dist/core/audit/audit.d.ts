@@ -10,4 +10,3 @@
  */
 import { UserAnswers } from '../../types/UserAnswer';
 export declare function runAudit(config: UserAnswers): Promise<void>;
-//# sourceMappingURL=audit.d.ts.map

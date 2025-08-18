@@ -41,4 +41,3 @@ async function runAudit(config) {
         throw new Error(`❌ Auditoría fallida: ${error instanceof Error ? error.message : String(error)}`);
     }
 }
-//# sourceMappingURL=audit.js.map

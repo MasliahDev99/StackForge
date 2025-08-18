@@ -7,4 +7,3 @@ declare class QuickConfigService {
 }
 export declare const quickConfigService: QuickConfigService;
 export {};
-//# sourceMappingURL=quickConfigService.d.ts.map

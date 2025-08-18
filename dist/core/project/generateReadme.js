@@ -45,4 +45,3 @@ Generado automáticamente con StackForge CLI.
 `;
     fs_1.default.writeFileSync(path_1.default.join(process.cwd(), 'README.md'), content, 'utf-8');
 }
-//# sourceMappingURL=generateReadme.js.map

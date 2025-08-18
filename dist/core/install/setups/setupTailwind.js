@@ -81,4 +81,3 @@ async function insertTailwindDirectives(version) {
     fs_1.default.writeFileSync(path_1.default.join(cssDir, targetCss), `${directive}\n`, 'utf-8');
     logger_1.logger.success(`✅ Directivas Tailwind insertadas en ${targetCss}`);
 }
-//# sourceMappingURL=setupTailwind.js.map

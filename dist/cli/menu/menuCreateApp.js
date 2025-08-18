@@ -40,4 +40,3 @@ async function menuCreateApp() {
         }
     }
 }
-//# sourceMappingURL=menuCreateApp.js.map

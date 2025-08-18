@@ -20,4 +20,3 @@ export declare class ProjectInstaller implements IInstaller {
     constructor();
     install(config: UserAnswers): Promise<void>;
 }
-//# sourceMappingURL=projectInstaller.d.ts.map

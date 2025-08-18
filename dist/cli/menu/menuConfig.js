@@ -44,4 +44,3 @@ async function menuConfig() {
         }
     }
 }
-//# sourceMappingURL=menuConfig.js.map

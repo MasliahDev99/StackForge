@@ -11,4 +11,3 @@ export declare class GitPrompt {
         repoConfig: RepoCreationConfig;
     }>;
 }
-//# sourceMappingURL=gitPrompt.d.ts.map

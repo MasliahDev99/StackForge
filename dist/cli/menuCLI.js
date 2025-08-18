@@ -42,4 +42,3 @@ async function menuCLI() {
         }
     }
 }
-//# sourceMappingURL=menuCLI.js.map

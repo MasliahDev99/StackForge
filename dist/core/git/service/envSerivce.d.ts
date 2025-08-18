@@ -31,4 +31,3 @@ export declare function getGitHubConfig(): {
  * @returns {boolean} `true` si ambos valores están definidos, `false` en caso contrario.
  */
 export declare function isGitHubSessionValid(): boolean;
-//# sourceMappingURL=envSerivce.d.ts.map
